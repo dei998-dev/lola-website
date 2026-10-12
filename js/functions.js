@@ -207,7 +207,36 @@
     });
   }
 
+  /* ---------------------------------------------------------
+     5. Cabecera fija
+     Siempre visible. Transparente sobre el hero; sólida en
+     cuanto el hero sale de debajo de ella.
+     --------------------------------------------------------- */
+  function cabeceraFija() {
+    var cab  = document.querySelector('.cabecera');
+    var hero = document.getElementById('inicio');
+    if (!cab || !hero) { return; }
+
+    cab.classList.add('fija');
+    var pendiente = false;
+
+    function actualizar() {
+      pendiente = false;
+      // un poco antes del final del hero, para que nunca quede
+      // transparente sobre el borde del vídeo
+      var limite = hero.offsetHeight - cab.offsetHeight * 2;
+      cab.classList.toggle('solida', window.scrollY > limite);
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!pendiente) { pendiente = true; window.requestAnimationFrame(actualizar); }
+    }, { passive: true });
+    window.addEventListener('resize', actualizar);
+    actualizar();
+  }
+
   /* --------------------------------------------------------- */
+  cabeceraFija();
   barraMovil();
   cifrasAnimadas();
   carruselTestimonios();

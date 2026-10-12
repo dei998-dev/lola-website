@@ -59,6 +59,9 @@ The live site updates about a minute after the push.
 - Added testimonial photos for Irene and Ma Angélica (converted to WebP, cropped 3:4, 400×533, matching the other testimonial photos).
 - Added a favicon: Fraunces "L" in cream on a coral (#C04A38) circle — `favicon.svg`, `favicon.ico` (16/32/48) and `apple-touch-icon.png` (180×180), linked in `<head>`. Provisional until the final brand identity arrives.
 - Fixed the footer links: the light hero-header style had also been applied to them by mistake; restored dark text with no shadow.
+- Hero now fills the full screen height (`100dvh`, with `100vh` fallback) on all devices.
+- Navbar: the "L" favicon replaces the text logo; the navbar is fixed and stays visible while scrolling — transparent over the hero, then a solid cream bar with dark links once you scroll past it (`js/functions.js` → `cabeceraFija`). Anchor links leave 72px so section titles aren't hidden under it.
+- Mobile: added space between Lola's portrait and the "Quién soy" title.
 
 ## Pending / to-do
 

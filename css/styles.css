@@ -94,7 +94,7 @@ img, video { max-width: 100%; display: block; }
 .contenedor--ancho { max-width: var(--ancho-max); }
 
 .bloque { padding: var(--seccion-y) 0; }
-.bloque[id] { scroll-margin-top: var(--e-6); }
+.bloque[id] { scroll-margin-top: 72px; }   /* deja sitio a la cabecera fija */
 .bloque > .contenedor > h2 { margin-bottom: var(--e-5); }
 .bloque--centrado { text-align: center; }
 .bloque--centrado h2 { max-width: 20ch; margin-left: auto; margin-right: auto; }
@@ -118,21 +118,33 @@ img, video { max-width: 100%; display: block; }
 .saltar:focus { left: var(--margen); top: var(--e-3); }
 
 /* =========================================================
-   CABECERA — sobre el vídeo, sin fondo propio
+   CABECERA — transparente sobre el vídeo; al pasar el hero
+   se vuelve sólida (clase .solida, la pone functions.js).
+   Sin JS se queda arriba, sin fijarse.
    ========================================================= */
 .cabecera {
-  position: absolute; top: 0; left: 0; right: 0; z-index: 10;
-  padding: var(--e-5) 0 0;
+  position: absolute; top: 0; left: 0; right: 0; z-index: 30;
+  padding: var(--e-3) 0;
+  transition: background-color var(--mov), box-shadow var(--mov), padding var(--mov);
+}
+.cabecera.fija { position: fixed; }
+.cabecera.solida {
+  background: rgba(255,245,239,0.94);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 var(--c-linea);
+  padding: var(--e-2) 0;
 }
 .cabecera .contenedor {
   display: flex; align-items: center; justify-content: space-between;
-  gap: var(--e-4); flex-wrap: wrap;
+  gap: var(--e-4); flex-wrap: nowrap;
 }
-.marca {
-  font-family: var(--f-display); font-weight: 400; font-size: 1.05rem;
-  text-decoration: none; color: var(--c-durazno-50);
-  text-shadow: 0 1px 10px rgba(20,14,16,0.4);
+.marca { display: block; flex: 0 0 auto; border-radius: 50%; }
+.marca img {
+  width: 40px; height: 40px; display: block;
+  filter: drop-shadow(0 2px 8px rgba(20,14,16,0.35));
+  transition: filter var(--mov);
 }
+.cabecera.solida .marca img { filter: none; }
 .cabecera nav { display: flex; flex-wrap: wrap; gap: var(--e-5); }
 .cabecera nav a {
   display: inline-flex; align-items: center; min-height: 44px;
@@ -141,6 +153,9 @@ img, video { max-width: 100%; display: block; }
   transition: color var(--mov), border-color var(--mov);
 }
 .cabecera nav a:hover { color: #FFFFFF; border-color: #FFFFFF; }
+.cabecera.solida nav a { color: var(--texto-suave); text-shadow: none; }
+.cabecera.solida nav a:hover { color: var(--texto); border-color: var(--texto); }
+.cabecera.solida :focus-visible { outline-color: var(--foco); }
 
 /* =========================================================
    HERO CON VÍDEO DE FONDO
@@ -148,7 +163,8 @@ img, video { max-width: 100%; display: block; }
 .hero {
   position: relative;
   isolation: isolate;
-  min-height: 92svh;
+  min-height: 100vh;     /* respaldo para navegadores sin dvh */
+  min-height: 100dvh;
   display: grid;
   align-items: center;
   padding: calc(var(--e-10) + var(--e-4)) 0 var(--e-9);
@@ -470,8 +486,8 @@ img.foto-arco { object-position: 50% 35%; }
    MÓVIL PEQUEÑO
    ========================================================= */
 @media (max-width: 759px) {
-  .cabecera .contenedor { flex-direction: column; align-items: center; gap: 0; }
   .cabecera nav { gap: var(--e-4); }
+  .duo > .foto-arco { margin-bottom: var(--e-6); }   /* aire entre retrato y "Quién soy" */
   .cierre-acciones { flex-direction: column; align-items: stretch; }
   .cierre-acciones a { text-align: center; }
   body.con-barra { padding-bottom: 76px; }
@@ -483,7 +499,7 @@ img.foto-arco { object-position: 50% 35%; }
    que las secciones con dos ideas se ponen una al lado de otra.
    ========================================================= */
 @media (min-width: 760px) {
-  .hero { min-height: min(88svh, 780px); padding: var(--e-10) 0; }
+  .hero { padding: var(--e-10) 0; }
 
   /* quién soy: retrato en arco a la izquierda, texto a la derecha */
   .duo {
