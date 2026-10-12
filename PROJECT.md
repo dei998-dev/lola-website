@@ -63,6 +63,7 @@ The live site updates about a minute after the push.
 - Navbar: the "L" favicon replaces the text logo; the navbar is fixed and stays visible while scrolling — transparent over the hero, then a solid cream bar with dark links once you scroll past it (`js/functions.js` → `cabeceraFija`). Anchor links leave 72px so section titles aren't hidden under it.
 - Mobile: added space between Lola's portrait and the "Quién soy" title.
 - Navbar redesigned as a floating, rounded, centered menu (frosted cream panel with shadow): L logo, three section links and an "Agendar sesión" button. On mobile the button is hidden because the bottom bar already has it.
+- Navbar: removed the "Agendar sesión" button (the hero already has it) and widened the menu to 70.83% of the screen width (85rem max = 1360px at 1920px), logo left and links right. On phones it spans the full width minus a small margin.
 
 ## Pending / to-do
 

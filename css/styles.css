@@ -131,10 +131,12 @@ img, video { max-width: 100%; display: block; }
 .cabecera.fija { position: fixed; }
 .menu {
   pointer-events: auto;
-  width: fit-content; max-width: 100%;
+  /* 85rem (1360px) en una pantalla de 1920px = 70.83% del ancho.
+     Se mantiene esa proporción en pantallas más pequeñas. */
+  width: 70.83vw; max-width: 85rem;
   margin: 0 auto;
-  display: flex; align-items: center; gap: var(--e-6);
-  padding: 6px 6px 6px 8px;
+  display: flex; align-items: center; justify-content: space-between; gap: var(--e-6);
+  padding: 6px var(--e-5) 6px 8px;
   background: rgba(255,249,245,0.86);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   backdrop-filter: blur(14px) saturate(140%);
@@ -158,7 +160,6 @@ img, video { max-width: 100%; display: block; }
   transition: color var(--mov), border-color var(--mov);
 }
 .cabecera nav a:hover { color: var(--accion); }
-.menu-cta { padding: 11px 18px; flex: 0 0 auto; border-radius: 9px; }   /* radio del menú menos su relleno */
 
 /* =========================================================
    HERO CON VÍDEO DE FONDO
@@ -489,9 +490,8 @@ img.foto-arco { object-position: 50% 35%; }
    MÓVIL PEQUEÑO
    ========================================================= */
 @media (max-width: 759px) {
-  .menu { gap: var(--e-4); padding-right: var(--e-4); }
+  .menu { width: 100%; gap: var(--e-4); padding-right: var(--e-4); }   /* en móvil, a lo ancho */
   .cabecera nav { gap: var(--e-4); }
-  .menu-cta { display: none; }   /* en móvil los botones van en la barra inferior */
   .duo > .foto-arco { margin-bottom: var(--e-6); }   /* aire entre retrato y "Quién soy" */
   .cierre-acciones { flex-direction: column; align-items: stretch; }
   .cierre-acciones a { text-align: center; }
