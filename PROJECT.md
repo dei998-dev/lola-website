@@ -54,6 +54,7 @@ The live site updates about a minute after the push.
 - Hero video: compressed the 28 s export (`video/Sequence 01.mp4`, 36 MB) to `video/hero-lola.mp4` (2.3 MB, H.264) and `video/hero-lola.webm` (1.8 MB, VP9), 1280×720, no audio. The original stays local only (in `.gitignore`).
 - Generated `img/hero-poster.webp` from the first second of the video (shown while the video loads and for visitors with reduced motion).
 - Hero styling: dark warm veil (gradient + soft halo behind the title) over the video, light text with a subtle shadow, light header links. Fixed a layering bug that put the veil behind the video.
+- Strengthened the dark halo behind the hero text (larger, denser radial gradient) for more contrast over the video.
 
 ## Pending / to-do
 
