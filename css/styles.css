@@ -424,8 +424,8 @@ img, video { max-width: 100%; display: block; }
 .pie-redes { display: flex; flex-wrap: wrap; gap: var(--e-2) var(--e-5); margin: 0 0 var(--e-5); padding: 0; list-style: none; }
 .pie-redes a {
   display: inline-flex; align-items: center; min-height: 44px;
-  font-size: var(--t-peq); color: rgba(255,249,245,0.86); text-decoration: none;
-  border-bottom: 1px solid transparent; text-shadow: 0 1px 10px rgba(20,14,16,0.4);
+  font-size: var(--t-peq); color: var(--texto-suave); text-decoration: none;
+  border-bottom: 1px solid transparent;
   transition: color var(--mov), border-color var(--mov);
 }
 .pie-redes a:hover { color: var(--texto); border-color: var(--texto); }

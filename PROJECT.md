@@ -58,6 +58,7 @@ The live site updates about a minute after the push.
 - Strengthened the dark halo behind the hero text (larger, denser radial gradient) for more contrast over the video.
 - Added testimonial photos for Irene and Ma Angélica (converted to WebP, cropped 3:4, 400×533, matching the other testimonial photos).
 - Added a favicon: Fraunces "L" in cream on a coral (#C04A38) circle — `favicon.svg`, `favicon.ico` (16/32/48) and `apple-touch-icon.png` (180×180), linked in `<head>`. Provisional until the final brand identity arrives.
+- Fixed the footer links: the light hero-header style had also been applied to them by mistake; restored dark text with no shadow.
 
 ## Pending / to-do
 
