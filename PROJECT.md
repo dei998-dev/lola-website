@@ -55,13 +55,14 @@ The live site updates about a minute after the push.
 - Generated `img/hero-poster.webp` from the first second of the video (shown while the video loads and for visitors with reduced motion).
 - Hero styling: dark warm veil (gradient + soft halo behind the title) over the video, light text with a subtle shadow, light header links. Fixed a layering bug that put the veil behind the video.
 - Strengthened the dark halo behind the hero text (larger, denser radial gradient) for more contrast over the video.
+- Added testimonial photos for Irene and Ma Angélica (converted to WebP, cropped 3:4, 400×533, matching the other testimonial photos).
 
 ## Pending / to-do
 
 - [x] Hero video and poster.
 - [ ] Review the hero video content against the brief: some clips show the Las Lolas duo (#EstaEsMiCanción) and third-party logos (FM Mundo), and the brief says Las Lolas should not appear on this page.
 - [ ] Confirm `www.lolaguevara.com` is also active as a custom domain.
-- [ ] Testimonials: photos for Irene and Ma Angélica (`img/irene.webp`, `img/ma-angelica.webp`).
+- [x] Testimonial photos for Irene and Ma Angélica.
 - [ ] WhatsApp community link (when Lola creates it).
 - [ ] Contenidas sales landing (when it exists, replace the Instagram link in the "Conocer Contenidas" buttons).
 - [ ] Final brand identity (colors, typography, logo) from the brand designer — swap in without changing content.
