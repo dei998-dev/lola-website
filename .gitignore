@@ -6,3 +6,7 @@ desktop.ini
 # Editores
 .vscode/
 .idea/
+
+# Vídeo original sin comprimir (pesado, no se sube)
+video/Sequence 01.mp4
+_tmp/
