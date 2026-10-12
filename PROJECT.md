@@ -23,6 +23,7 @@ A single-page, long-scroll website for **Lola Guevara** (transpersonal psycholog
   ```
   index.html
   favicon.svg, favicon.ico, apple-touch-icon.png
+  robots.txt, sitemap.xml
   css/styles.css
   js/functions.js
   img/        (webp images)
@@ -65,6 +66,7 @@ The live site updates about a minute after the push.
 - Navbar redesigned as a floating, rounded, centered menu (frosted cream panel with shadow): L logo, three section links and an "Agendar sesión" button. On mobile the button is hidden because the bottom bar already has it.
 - Navbar: removed the "Agendar sesión" button (the hero already has it) and widened the menu to 70.83% of the screen width (85rem max = 1360px at 1920px), logo left and links right. On phones it spans the full width minus a small margin.
 - Reverted the floating navbar (both versions) back to the previous full-width fixed navbar: transparent over the hero, solid cream bar after scrolling, L logo left, links right.
+- SEO: added canonical URL, robots and author meta, full Open Graph + Twitter/X card tags, a 1200×630 share image (`img/og-lola.jpg`), JSON-LD structured data (WebSite, Person, ProfessionalService with the three services, FAQPage generated from the on-page FAQ), `robots.txt` (also hides `PROJECT.md` from search engines) and `sitemap.xml`.
 
 ## Pending / to-do
 
@@ -74,4 +76,6 @@ The live site updates about a minute after the push.
 - [x] Testimonial photos for Irene and Ma Angélica.
 - [ ] WhatsApp community link (when Lola creates it).
 - [ ] Contenidas sales landing (when it exists, replace the Instagram link in the "Conocer Contenidas" buttons).
+- [ ] After pushing: submit `https://lolaguevara.com/sitemap.xml` in Google Search Console and check the share preview (e.g. paste the link in WhatsApp).
+- [ ] When FAQ text or services change, update the JSON-LD block in `<head>` to match.
 - [ ] Final brand identity (colors, typography, logo) from the brand designer — swap in without changing content.

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /PROJECT.md
+
+Sitemap: https://lolaguevara.com/sitemap.xml
