@@ -64,6 +64,7 @@ The live site updates about a minute after the push.
 - Mobile: added space between Lola's portrait and the "Quién soy" title.
 - Navbar redesigned as a floating, rounded, centered menu (frosted cream panel with shadow): L logo, three section links and an "Agendar sesión" button. On mobile the button is hidden because the bottom bar already has it.
 - Navbar: removed the "Agendar sesión" button (the hero already has it) and widened the menu to 70.83% of the screen width (85rem max = 1360px at 1920px), logo left and links right. On phones it spans the full width minus a small margin.
+- Reverted the floating navbar (both versions) back to the previous full-width fixed navbar: transparent over the hero, solid cream bar after scrolling, L logo left, links right.
 
 ## Pending / to-do
 

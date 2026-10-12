@@ -94,7 +94,7 @@ img, video { max-width: 100%; display: block; }
 .contenedor--ancho { max-width: var(--ancho-max); }
 
 .bloque { padding: var(--seccion-y) 0; }
-.bloque[id] { scroll-margin-top: 84px; }   /* deja sitio a la cabecera fija */
+.bloque[id] { scroll-margin-top: 72px; }   /* deja sitio a la cabecera fija */
 .bloque > .contenedor > h2 { margin-bottom: var(--e-5); }
 .bloque--centrado { text-align: center; }
 .bloque--centrado h2 { max-width: 20ch; margin-left: auto; margin-right: auto; }
@@ -118,48 +118,44 @@ img, video { max-width: 100%; display: block; }
 .saltar:focus { left: var(--margen); top: var(--e-3); }
 
 /* =========================================================
-   CABECERA — menú flotante, redondeado y centrado.
-   functions.js le pone .fija (queda visible al hacer scroll)
-   y .solida (algo más de sombra al salir del hero).
+   CABECERA — transparente sobre el vídeo; al pasar el hero
+   se vuelve sólida (clase .solida, la pone functions.js).
    Sin JS se queda arriba, sin fijarse.
    ========================================================= */
 .cabecera {
   position: absolute; top: 0; left: 0; right: 0; z-index: 30;
-  padding: var(--e-3) var(--e-3) 0;
-  pointer-events: none;            /* solo la píldora recibe clics */
+  padding: var(--e-3) 0;
+  transition: background-color var(--mov), box-shadow var(--mov), padding var(--mov);
 }
 .cabecera.fija { position: fixed; }
-.menu {
-  pointer-events: auto;
-  /* 85rem (1360px) en una pantalla de 1920px = 70.83% del ancho.
-     Se mantiene esa proporción en pantallas más pequeñas. */
-  width: 70.83vw; max-width: 85rem;
-  margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between; gap: var(--e-6);
-  padding: 6px var(--e-5) 6px 8px;
-  background: rgba(255,249,245,0.86);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
-  backdrop-filter: blur(14px) saturate(140%);
-  border: 1px solid rgba(255,255,255,0.55);
-  border-radius: var(--r-m);
-  box-shadow: 0 1px 2px rgba(20,14,16,0.06), 0 10px 30px rgba(20,14,16,0.16);
-  transition: box-shadow var(--mov), background-color var(--mov);
+.cabecera.solida {
+  background: rgba(255,245,239,0.94);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 var(--c-linea);
+  padding: var(--e-2) 0;
 }
-.cabecera.solida .menu {
-  background: rgba(255,249,245,0.94);
-  border-color: var(--c-linea);
-  box-shadow: 0 1px 2px rgba(20,14,16,0.05), 0 8px 24px rgba(20,14,16,0.10);
+.cabecera .contenedor {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--e-4); flex-wrap: nowrap;
 }
 .marca { display: block; flex: 0 0 auto; border-radius: 50%; }
-.marca img { width: 34px; height: 34px; display: block; }
-.cabecera nav { display: flex; gap: var(--e-5); }
+.marca img {
+  width: 40px; height: 40px; display: block;
+  filter: drop-shadow(0 2px 8px rgba(20,14,16,0.35));
+  transition: filter var(--mov);
+}
+.cabecera.solida .marca img { filter: none; }
+.cabecera nav { display: flex; flex-wrap: wrap; gap: var(--e-5); }
 .cabecera nav a {
-  display: inline-flex; align-items: center; min-height: 40px;
-  font-size: var(--t-peq); font-weight: 400; color: var(--texto); text-decoration: none;
-  border-bottom: 1px solid transparent;
+  display: inline-flex; align-items: center; min-height: 44px;
+  font-size: var(--t-peq); color: rgba(255,249,245,0.86); text-decoration: none;
+  border-bottom: 1px solid transparent; text-shadow: 0 1px 10px rgba(20,14,16,0.4);
   transition: color var(--mov), border-color var(--mov);
 }
-.cabecera nav a:hover { color: var(--accion); }
+.cabecera nav a:hover { color: #FFFFFF; border-color: #FFFFFF; }
+.cabecera.solida nav a { color: var(--texto-suave); text-shadow: none; }
+.cabecera.solida nav a:hover { color: var(--texto); border-color: var(--texto); }
+.cabecera.solida :focus-visible { outline-color: var(--foco); }
 
 /* =========================================================
    HERO CON VÍDEO DE FONDO
@@ -209,7 +205,7 @@ img, video { max-width: 100%; display: block; }
 .hero h1 { font-size: var(--t-hero); }
 .hero .rol { font-size: var(--t-peq); color: rgba(255,249,245,0.86); margin: var(--e-3) 0 0; }
 .hero .btn { text-shadow: none; box-shadow: 0 6px 22px rgba(20,14,16,0.30); }
-.hero :focus-visible { outline-color: var(--c-durazno-50); }
+.hero :focus-visible, .cabecera :focus-visible { outline-color: var(--c-durazno-50); }
 .hero .promesa {
   font-family: var(--f-display); font-weight: 300;
   font-size: clamp(1.15rem, 2.6vw, 1.5rem); line-height: 1.35;
@@ -490,7 +486,6 @@ img.foto-arco { object-position: 50% 35%; }
    MÓVIL PEQUEÑO
    ========================================================= */
 @media (max-width: 759px) {
-  .menu { width: 100%; gap: var(--e-4); padding-right: var(--e-4); }   /* en móvil, a lo ancho */
   .cabecera nav { gap: var(--e-4); }
   .duo > .foto-arco { margin-bottom: var(--e-6); }   /* aire entre retrato y "Quién soy" */
   .cierre-acciones { flex-direction: column; align-items: stretch; }
