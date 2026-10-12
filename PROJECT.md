@@ -22,6 +22,7 @@ A single-page, long-scroll website for **Lola Guevara** (transpersonal psycholog
 - **Folder structure:**
   ```
   index.html
+  favicon.svg, favicon.ico, apple-touch-icon.png
   css/styles.css
   js/functions.js
   img/        (webp images)
@@ -56,6 +57,7 @@ The live site updates about a minute after the push.
 - Hero styling: dark warm veil (gradient + soft halo behind the title) over the video, light text with a subtle shadow, light header links. Fixed a layering bug that put the veil behind the video.
 - Strengthened the dark halo behind the hero text (larger, denser radial gradient) for more contrast over the video.
 - Added testimonial photos for Irene and Ma Angélica (converted to WebP, cropped 3:4, 400×533, matching the other testimonial photos).
+- Added a favicon: Fraunces "L" in cream on a coral (#C04A38) circle — `favicon.svg`, `favicon.ico` (16/32/48) and `apple-touch-icon.png` (180×180), linked in `<head>`. Provisional until the final brand identity arrives.
 
 ## Pending / to-do
 
